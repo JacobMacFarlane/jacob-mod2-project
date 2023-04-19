@@ -6,9 +6,149 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webpack Starter Kit</title>
 </head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
+<body class="grid-container">
+  <div class="grid-item nav">
+      <h1 class="mainHeader">Jacobs Hotel</h1>
+      <button class="loginButton">Login</button>
+  </div>
+  <div class="grid-item fanFavs">
+    <h2 class="fanFavoriteTrips">Fan Favorite Trips</h2>
+    <section class="randomFavTrips">
+      <div class="tripCont favTrip">
+        <svg class="tripContImg pending"></svg>
+        <h3 class="tripContLocation pending">Italy</h3>
+        <p class="tripContPPN pending">2000</p>
+        <p class="tripContEstimate pending">8000</p>
+      </div>
+      <div class="tripCont favTrip">
+        <svg class="tripContImg pending"></svg>
+        <h3 class="tripContLocation pending">Italy</h3>
+        <p class="tripContPPN pending">2000</p>
+        <p class="tripContEstimate pending">8000</p>
+      </div>
+      <div class="tripCont favTrip">
+        <svg class="tripContImg past"></svg>
+        <h3 class="tripContLocation past">Rio</h3>
+        <p class="tripContPPN past">7000</p>
+        <p class="tripContEstimate past">18000</p>
+      </div>
+    </section>
+  </div>
+  <div class="grid-item userLogin">
+      <form class="user-login-form">
+        <div class="user-input-box login">
+          <span class="icon">
+
+          </span>
+          <label>Username</label>
+          <input type="username" required>
+        </div>
+        <div class="user-input-box login">
+          <span class="icon">
+
+          </span>
+          <label>password</label>
+          <input type="password" required>
+        </div>
+        <button type="submit" class="loginBtn">Login</button>
+      </form>
+  </div>
+  <div class="grid-item tripNav">
+      <div class="tripNavLeft">
+        <button class="upcomingTrip tripBtn">Upcoming</button>
+        <button class="pendingTrip tripBtn">Pending</button>
+        <button class="pastTrip tripBtn">Previous</button>
+      </div>
+      <div class="tripNavRight">
+        <button class="planTrip">Plan A Trip!</button>
+      </div>
+  </div>
+  <div class="grid-item trips">
+    <!-- you will do the innerHTML to this -->
+    <!-- it will be synced up to whichever button above is pressed
+    the button should displayed that it is pressed or activated -->
+    
+    <div class="tripCont pending">
+      <svg class="tripContImg pending"></svg>
+      <h3 class="tripContLocation pending">Italy</h3>
+      <p class="tripContPPN pending">2000</p>
+      <p class="tripContEstimate pending">8000</p>
+    </div>
+    <div class="tripCont past">
+      <svg class="tripContImg past"></svg>
+      <h3 class="tripContLocation past">Rio</h3>
+      <p class="tripContPPN past">7000</p>
+      <p class="tripContEstimate past">18000</p>
+    </div>
+    <div class="tripCont pending">
+      <svg class="tripContImg pending"></svg>
+      <h3 class="tripContLocation pending">Italy</h3>
+      <p class="tripContPPN pending">2000</p>
+      <p class="tripContEstimate pending">8000</p>
+    </div>
+    <div class="tripCont past">
+      <svg class="tripContImg past"></svg>
+      <h3 class="tripContLocation past">Rio</h3>
+      <p class="tripContPPN past">7000</p>
+      <p class="tripContEstimate past">18000</p>
+    </div>
+    <div class="tripCont pending">
+      <svg class="tripContImg pending"></svg>
+      <h3 class="tripContLocation pending">Italy</h3>
+      <p class="tripContPPN pending">2000</p>
+      <p class="tripContEstimate pending">8000</p>
+    </div>
+    <div class="tripCont past">
+      <svg class="tripContImg past"></svg>
+      <h3 class="tripContLocation past">Rio</h3>
+      <p class="tripContPPN past">7000</p>
+      <p class="tripContEstimate past">18000</p>
+    </div>
+    <div class="tripCont pending">
+      <svg class="tripContImg pending"></svg>
+      <h3 class="tripContLocation pending">Italy</h3>
+      <p class="tripContPPN pending">2000</p>
+      <p class="tripContEstimate pending">8000</p>
+    </div>
+    <div class="tripCont past">
+      <svg class="tripContImg past"></svg>
+      <h3 class="tripContLocation past">Rio</h3>
+      <p class="tripContPPN past">7000</p>
+      <p class="tripContEstimate past">18000</p>
+    </div>
+    <div class="tripCont pending">
+      <svg class="tripContImg pending"></svg>
+      <h3 class="tripContLocation pending">Italy</h3>
+      <p class="tripContPPN pending">2000</p>
+      <p class="tripContEstimate pending">8000</p>
+    </div>
+    <div class="tripCont past">
+      <svg class="tripContImg past"></svg>
+      <h3 class="tripContLocation past">Rio</h3>
+      <p class="tripContPPN past">7000</p>
+      <p class="tripContEstimate past">18000</p>
+    </div>
+  </div>
   
+  <!-- <div class='cont'>
+    <form class="login-form">
+          <div class="input-box login">
+            <span class="icon">
+  
+            </span>
+            <label>Days of Stay</label>
+            <input type="date" required>
+          </div>
+          <div class="input-box login">
+            <span class="icon">
+  
+            </span>
+            <label>Number of Guests</label>
+            <input type="number" required>
+          </div>
+          <button type="submit" class="loginBtn">Search</button>
+        </form>
+  </div> -->
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 
