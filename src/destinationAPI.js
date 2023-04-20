@@ -58,4 +58,4 @@ class DestinationInfo {
     }
 }
 
-module.exports = DestinationInfo
+module.exports = DestinationInfo;
