@@ -36,6 +36,7 @@ function generateRandomId() {
 
 function renderUserInfo() {
     const currentUser = allTravelers.getUserById(randomUserId)
+    console.log(allTrips.findUserTrips(randomUserId))
     //will do innerHTML upon Fan Favorite trips to make it say
     //hello[userName] we think you might like these 3 trips
     //interpolate upon the three boxes to show 3 destinations they have not been
@@ -43,6 +44,7 @@ function renderUserInfo() {
 }
 function renderPastTrips() {
     const currentUser = allTravelers.getUserById(randomUserId)
+
     //in here upon clicking the Previous trips button
     //all of the previous trips will be added into the display
     //clicking upcoming or pending should hide them
