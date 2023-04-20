@@ -35,7 +35,7 @@ class DestinationInfo {
         if (!thePlace) {
             return undefined
         } else {
-        return thePlace.estimatedLodgingCostPerDay * date.length
+        return thePlace.estimatedLodgingCostPerDay * date
         }
     }
     getTotalFlightCost = (id, amountOfPeople) => {
