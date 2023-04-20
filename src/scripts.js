@@ -7,11 +7,6 @@ import './images/turing-logo.png'
 
 
 
-window.addEventListener('load', () => {
-    createStartPage();
-})
-
-
 let allTrips, allTravelers, allDestinations, randomUserId
 function createStartPage() {
     Promise.all([fetchData('travelers'), fetchData('trips'), fetchData('destinations')])
