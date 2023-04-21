@@ -41,8 +41,6 @@ class TripInfo {
         this.destinationData.forEach((destination) => {
             userTripInfos.forEach((trip) => {
                 if (trip.destinationId === destination.id) { 
-                    console.log(trip.travlerCount, 'how many')
-                    console.log(destination.estimatedFlightCostPerPerson, 'cost')
                  flightTotal += (trip.travlerCount * destination.estimatedFlightCostPerPerson) * 2
                 }    
             })

@@ -1,4 +1,4 @@
-import { fetchData } from './apiCalls'
+import { fetchData, newTrip } from './apiCalls'
 import TripInfo from './userTripsAPI';
 import UserInfo from './userInfoAPI';
 import DestinationInfo from './destinationAPI';
@@ -23,6 +23,7 @@ var allTimeFlight = document.getElementById('allTimeMoneyOnFlights')
 var allTimeSeller = document.getElementById('allTimeMoneyOnSeller')
 var pendingButton = document.getElementById('pendingButton')
 var previousButton = document.getElementById('previousButton')
+var modalForm = document.getElementById('modalSubmit')
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
@@ -79,8 +80,25 @@ function hideGrid(grid) {
 window.addEventListener('load', () => {
     createStartPage()
 })
-
-let allTrips, allTravelers, allDestinations, randomUserId, randomDestination1, randomDestination2, randomDestination3
+modalForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formInfo = new FormData(e.target);
+    let selectElement = document.getElementById("destinations");
+    let selectedOption = selectElement.options[selectElement.selectedIndex];
+    let selectedValue = selectedOption.value;
+    chosenDestination = allDestinations.destinationData.find(destination => destination.destination === selectedValue)
+    const newTrip = {
+        userID: randomUserId,
+        DestinationID: chosenDestination.id,
+        travelers: formInfo.get('amountPeople'),
+        date: formInfo.get('trip-start'),
+        duration: 7,
+        status: 'pending',
+        suggestedActivities: []
+    }
+    console.log(newTrip, 'this')
+})
+let allTrips, allTravelers, allDestinations, randomUserId, randomDestination1, randomDestination2, randomDestination3, chosenDestination
 function createStartPage() {
     Promise.all([fetchData('travelers'), fetchData('trips'), fetchData('destinations')])
     .then(data => {
@@ -93,9 +111,6 @@ function createStartPage() {
         randomDestination1 = generateRandomDestination()
         randomDestination2 = generateRandomDestination()
         randomDestination3 = generateRandomDestination()
-        console.log(randomDestination1, '1')
-        console.log(randomDestination2, '2')
-        console.log(randomDestination3, '3')
         renderFavTrips()
         renderPastTrips()
         renderAllTime()
@@ -138,10 +153,7 @@ function renderFavTrips() {
 function renderPastTrips() {
     const currentUser = allTravelers.getUserById(randomUserId)
     let currentUserPast = allTrips.findUserTrips(randomUserId)
-    console.log(currentUser, 'current')
-    console.log(randomUserId, 'id')
     let trips = currentUserPast.map(trip => {
-        console.log(trip)
       return  {
         ['destination']: allDestinations.getDestinationById(trip.destinationID),
         ['placeId']: trip.destinationID,
@@ -150,7 +162,6 @@ function renderPastTrips() {
         }
     })
     trips.forEach((trip) => {
-        console.log(trip, 'trip')
         tripGrid.innerHTML += `
         <div class="tripCont pending">
         <div class="tripList">
