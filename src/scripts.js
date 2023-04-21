@@ -27,7 +27,7 @@ var modalForm = document.getElementById('modalSubmit')
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
-
+let incrementer = 203
 openModalButtons.forEach(button => {
   button.addEventListener('click', () => {
     const modal = document.querySelector(button.dataset.modalTarget)
@@ -88,6 +88,7 @@ modalForm.addEventListener('submit', (e) => {
     let selectedValue = selectedOption.value;
     chosenDestination = allDestinations.destinationData.find(destination => destination.destination === selectedValue)
     const newTrip = {
+        ID: tripIncrementer(),
         userID: randomUserId,
         DestinationID: chosenDestination.id,
         travelers: formInfo.get('amountPeople'),
@@ -124,6 +125,9 @@ function generateRandomId() {
 }
 function generateRandomDestination() {
     return Math.floor(Math.random() * allDestinations.destinationData.length)
+}
+function tripIncrementer() {
+    return incrementer++
 }
 function renderFavTrips() {
     const currentUser = allTravelers.getUserById(randomUserId)
