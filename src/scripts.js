@@ -16,6 +16,11 @@ var favThumbnail2 = document.getElementById('favThumbnail2')
 var favTripInfo3 = document.getElementById('favTripInfo3')
 var favThumbnail3 = document.getElementById('favThumbnail3')
 var tripGrid = document.getElementById('pastTrips')
+var allTimeMoney = document.getElementById('allTimeMoney')
+var allTimeLodging = document.getElementById('allTimeMoneyOnLodging')
+var allTimeFlight = document.getElementById('allTimeMoneyOnFlights')
+var allTimeSeller = document.getElementById('allTimeMoneyOnSeller')
+
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
@@ -145,6 +150,10 @@ function renderPastTrips() {
         </div>
       </div>
         `
+        allTimeMoney.innerText = `${allTrips.allTimeSpending(randomUserId)} Dollars`
+        allTimeLodging.innerText = `${allTrips.getAllTimePerNight(randomUserId)} Dollars`
+        allTimeFlight.innerText = `${allTrips.getAllTimeFlight(randomUserId)} Dollars`
+        allTimeSeller.innerText = `${allTrips.allTimeSellerFee(randomUserId)} Dollars`
     })
     //in here upon clicking the Previous trips button
     //all of the previous trips will be added into the display
