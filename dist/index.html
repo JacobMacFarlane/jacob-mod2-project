@@ -107,15 +107,18 @@
   <div class="grid-item tripNav">
       <div class="tripNavLeft">
         <button class="button-21" role="button">Upcoming</button>
-        <button class="button-21" role="button">Pending</button>
-        <button class="button-21" role="button">Previous</button>
+        <button class="button-21" id="pendingButton"role="button">Pending</button>
+        <button class="button-21" id="previousButton"role="button">Previous</button>
       </div>
       <div class="tripNavRight">
         <button class="button-21" role="button">Plan Your Trip!</button>
       </div>
   </div>
-  <div class="grid-item trips" id="pastTrips">
+  <div class="grid-item trips pastTrips" id="pastTrips">
     
+  </div>
+  <div class="grid-item trips pendingTrips hidden" id="pendingTrips">
+
   </div>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>

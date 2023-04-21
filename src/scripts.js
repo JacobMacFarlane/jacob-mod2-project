@@ -16,11 +16,13 @@ var favThumbnail2 = document.getElementById('favThumbnail2')
 var favTripInfo3 = document.getElementById('favTripInfo3')
 var favThumbnail3 = document.getElementById('favThumbnail3')
 var tripGrid = document.getElementById('pastTrips')
+var pendingGrid = document.getElementById('pendingTrips')
 var allTimeMoney = document.getElementById('allTimeMoney')
 var allTimeLodging = document.getElementById('allTimeMoneyOnLodging')
 var allTimeFlight = document.getElementById('allTimeMoneyOnFlights')
 var allTimeSeller = document.getElementById('allTimeMoneyOnSeller')
-
+var pendingButton = document.getElementById('pendingButton')
+var previousButton = document.getElementById('previousButton')
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
@@ -58,9 +60,22 @@ function closeModal(modal) {
   overlay.classList.remove('active')
 }
 
+previousButton.addEventListener('click', () => {
+    hideGrid('previous')
+})
+pendingButton.addEventListener('click', () => {
+    hideGrid('pending')
+})
 
-
-
+function hideGrid(grid) {
+    if (grid === 'pending') {
+        tripGrid.classList.add('hidden')
+        pendingGrid.classList.remove('hidden')
+    } else if (grid === 'previous') {
+        tripGrid.classList.remove('hidden')
+        pendingGrid.classList.add('hidden')
+    }
+}
 window.addEventListener('load', () => {
     createStartPage()
 })
