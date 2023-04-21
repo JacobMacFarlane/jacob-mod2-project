@@ -2,6 +2,8 @@ import { fetchData } from './apiCalls'
 import TripInfo from './userTripsAPI';
 import UserInfo from './userInfoAPI';
 import DestinationInfo from './destinationAPI';
+
+
 import './css/styles.css';
 import './images/turing-logo.png'
 
@@ -14,6 +16,45 @@ var favThumbnail2 = document.getElementById('favThumbnail2')
 var favTripInfo3 = document.getElementById('favTripInfo3')
 var favThumbnail3 = document.getElementById('favThumbnail3')
 var tripGrid = document.getElementById('pastTrips')
+const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+
+openModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = document.querySelector(button.dataset.modalTarget)
+    openModal(modal)
+  })
+})
+
+overlay.addEventListener('click', () => {
+  const modals = document.querySelectorAll('.modal.active')
+  modals.forEach(modal => {
+    closeModal(modal)
+  })
+})
+
+closeModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.modal')
+    closeModal(modal)
+  })
+})
+
+function openModal(modal) {
+  if (modal == null) return
+  modal.classList.add('active')
+  overlay.classList.add('active')
+}
+
+function closeModal(modal) {
+  if (modal == null) return
+  modal.classList.remove('active')
+  overlay.classList.remove('active')
+}
+
+
+
 
 window.addEventListener('load', () => {
     createStartPage()
@@ -37,6 +78,7 @@ function createStartPage() {
         console.log(randomDestination3, '3')
         renderFavTrips()
         renderPastTrips()
+        renderAllTime()
         // renderPendingTrips()
         // renderFavoriteTrips()
     })
@@ -107,5 +149,9 @@ function renderPastTrips() {
     //in here upon clicking the Previous trips button
     //all of the previous trips will be added into the display
     //clicking upcoming or pending should hide them
+}
+
+function renderAllTime() {
+    const currentUser = allTravelers.getUserById(randomUserId)
 }
 console.log('This is the JavaScript entry file - your code begins here.');

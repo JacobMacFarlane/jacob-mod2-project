@@ -15,7 +15,32 @@
       <h1 class="mainHeader">Jacobs Hotel</h1>
     </div>
     <div class="nav-right">
-      <button class="button-21" role="button">See All-Time Total</button>
+      <button data-modal-target="#modal" class="button-21" id="allTimeButt"role="button">See All-Time Total</button>
+      <div class="modal" id="modal">
+        <div class="modal-header">
+          <div class="title">All Time Money Spent</div>
+          <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+          <span class="modal-date">
+            <h3>All Time Money Spent on Trips:</h3>
+            <p id="allTimeMoney"></p>
+          </span>
+          <span class="modal-date">
+            <h3>All Time Money Spent on Lodging:</h3>
+            <p id="allTimeMoneyOnLodging"></p>
+          </span>
+          <span class="modal-date">
+            <h3>All Time Money Spent on Flights:</h3>
+            <p id="allTimeMoneyOnFlights"></p>
+          </span>
+          <span class="modal-date">
+            <h3>All Time Money Spent on Seller Fees:</h3>
+            <p id="allTimeMoneyOnSeller"></p>
+          </span>
+        </div>
+      </div>
+      <div id="overlay"></div>
       <button class="button-21" role="button">Login</button>
     </div>
   </div>
@@ -90,91 +115,37 @@
       </div>
   </div>
   <div class="grid-item trips" id="pastTrips">
-    <!-- you will do the innerHTML to this -->
-    <!-- it will be synced up to whichever button above is pressed
-    the button should displayed that it is pressed or activated -->
-    <!-- <div class="tripCont pending">
-      <div class="tripList">
-        <a href=""> <img src="" class="thumbnail"></a>
-        <div class="flexDiv">
-          <div class="tripInfo">
-            <a href="">Rio de janairo</a>
-            <p class="pricePerNight">85$</p>
-            <p class="roundTripPrice">750</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tripCont pending">
-      <div class="tripList">
-        <a href=""> <img src="" class="thumbnail"></a>
-        <div class="flexDiv">
-          <div class="tripInfo">
-            <a href="">Rio de janairo</a>
-            <p class="pricePerNight">85$</p>
-            <p class="roundTripPrice">750</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tripCont pending">
-      <div class="tripList">
-        <a href=""> <img src="" class="thumbnail"></a>
-        <div class="flexDiv">
-          <div class="tripInfo">
-            <a href="">Rio de janairo</a>
-            <p class="pricePerNight">85$</p>
-            <p class="roundTripPrice">750</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tripCont pending">
-      <div class="tripList">
-        <a href=""> <img src="" class="thumbnail"></a>
-        <div class="flexDiv">
-          <div class="tripInfo">
-            <a href="">Rio de janairo</a>
-            <p class="pricePerNight">85$</p>
-            <p class="roundTripPrice">750</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tripCont pending">
-      <div class="tripList">
-        <a href=""> <img src="" class="thumbnail"></a>
-        <div class="flexDiv">
-          <div class="tripInfo">
-            <a href="">Rio de janairo</a>
-            <p class="pricePerNight">85$</p>
-            <p class="roundTripPrice">750</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  
-  <!-- <div class='cont'>
-    <form class="login-form">
-          <div class="input-box login">
-            <span class="icon">
-  
-            </span>
-            <label>Days of Stay</label>
-            <input type="date" required>
-          </div>
-          <div class="input-box login">
-            <span class="icon">
-  
-            </span>
-            <label>Number of Guests</label>
-            <input type="number" required>
-          </div>
-          <button type="submit" class="loginBtn">Search</button>
-        </form>
-  </div> -->
+    
+  </div>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
-
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">All Time Money Spent</div>
+      <button data-close-button class="close-button">&times;</button>
+    </div>
+    <!-- <div class="modal-body">
+      <span class="modal-date">
+        <h3>All Time Money Spent on Trips:</h3>
+        <p id="allTimeMoney"></p>
+      </span>
+      <span class="modal-date">
+        <h3>All Time Money Spent on Lodging:</h3>
+        <p id="allTimeMoneyOnLodging"></p>
+      </span>
+      <span class="modal-date">
+        <h3>All Time Money Spent on Flights:</h3>
+        <p id="allTimeMoneyOnFlights"></p>
+      </span>
+      <span class="modal-date">
+        <h3>All Time Money Spent on Seller Fees:</h3>
+        <p id="allTimeMoneyOnSeller"></p>
+      </span>
+    </div>
+  </div>
+  <div id="overlay"></div> -->
 </body>
+<!-- <div class="micromodal-slide modal" id="modal-1" aria-hidden="true">
+  <div class="modal_overlay" tabindex=""></div>
+</div> -->
 </html>
