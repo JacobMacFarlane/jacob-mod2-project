@@ -7,8 +7,8 @@
 }
 .grid-container {
   display: grid;
-  grid-template-columns: 12, 1fr;
-  grid-template-rows: 12, 1fr;
+  grid-template-columns: 12;
+  grid-template-rows: 12;
   grid-gap: 5px;
   height: 100vh;
 }
@@ -139,6 +139,8 @@ background-color: yellow;
 .grid-item:nth-of-type(5) {
   grid-column: 2/12;
   grid-row: 4/12;
+  height: max-content;
+
   /* background-color: orange; */
 }
 .trips {
@@ -146,7 +148,6 @@ background-color: yellow;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 16px;
   grid-row-gap: 30px;
-  height: 100vh;
   /* margin-top: 15px; */
   /* padding: 20px; */
   
@@ -175,6 +176,8 @@ border-radius: 5px;
 }
 .tripCont {
   /* border: solid black 1px; */
+  padding: 2%;
+
   height: 42vh
 }
 /* .tripCont.favTrip {
@@ -200,10 +203,10 @@ border-radius: 5px;
  }
  .grid-item:nth-of-type(5) {
   grid-column: 2/12;
-  grid-row: 3/12;
+  grid-row: 2.5/12;
   background: rgba(40, 170, 255, 0.25);
   box-shadow: 0 0 10px gray;
-  
+  height: fit-content
   /* background-color: orange; */
 }  
 /* .grid-item:nth-of-type(5)::after {
