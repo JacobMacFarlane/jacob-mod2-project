@@ -16,17 +16,74 @@
 .grid-item:nth-of-type(1) {
   grid-column: 1/12;
   grid-row: 1/1;
-  background-color: red;
-}
-.nav {
+  /* background-color: red; */
+  padding: 10px 2%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 0 10px gray;
+  background: white;
+  position: static;
+  top: 0;
+  z-index: 10;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+.bi-list {
+  margin-right: 10px;
+  width: 50px;
+  height: fit-content;
+}
+
+/* CSS */
+.button-21 {
+  align-items: center;
+  appearance: none;
+  background-color: #3EB2FD;
+  background-image: linear-gradient(1deg, #4F58FD, #149BF3 99%);
+  background-size: calc(100% + 20px) calc(100% + 20px);
+  border-radius: 100px;
+  border-width: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: CircularStd,sans-serif;
+  font-size: 1rem;
+  height: auto;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 6px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s,background-position .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.button-21:active,
+.button-21:focus {
+  outline: none;
+}
+
+.button-21:hover {
+  background-position: -20px -20px;
+}
+
+.button-21:focus:not(:active) {
+  box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
 }
 .grid-item:nth-of-type(2) {
 grid-column: 1/2;
 grid-row: 2/12;
-background-color: blue;
+/* background-color: blue; */
 display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,6 +119,7 @@ display: flex;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 50px;
 }
 .tripBtn {
   margin-right: 20px
@@ -69,7 +127,9 @@ display: flex;
 .grid-item:nth-of-type(4) {
   grid-column: 2/12;
   grid-row: 2/3;
-  background-color: yellow 
+  position: static;
+  top: 0
+  /* background-color: yellow  */
 } */
 /* .grid-item:nth-of-type(4)::after {
   grid-column: 3/12;
@@ -79,15 +139,16 @@ background-color: yellow;
 .grid-item:nth-of-type(5) {
   grid-column: 2/12;
   grid-row: 4/12;
-  background-color: orange;
+  /* background-color: orange; */
 }
 .trips {
   display: grid;  
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 16px;
   grid-row-gap: 30px;
-  margin-top: 15px;
-  padding: 20px;
+  height: 100vh;
+  /* margin-top: 15px; */
+  /* padding: 20px; */
   
 }
 .thumbnail {
@@ -100,7 +161,7 @@ border-radius: 5px;
 }
 .tripList .flexDiv {
   align-items: flex-start;
-  margin-top: 7px;
+  margin-top: 24px;
 }
 .tripInfo {
   color: black;
@@ -113,7 +174,7 @@ border-radius: 5px;
   margin-bottom: 5px;
 }
 .tripCont {
-  border: solid black 1px;
+  /* border: solid black 1px; */
   height: 42vh
 }
 /* .tripCont.favTrip {
@@ -140,7 +201,10 @@ border-radius: 5px;
  .grid-item:nth-of-type(5) {
   grid-column: 2/12;
   grid-row: 3/12;
-  background-color: orange;
+  background: rgba(40, 170, 255, 0.25);
+  box-shadow: 0 0 10px gray;
+  
+  /* background-color: orange; */
 }  
 /* .grid-item:nth-of-type(5)::after {
   grid-column: 3/12;
