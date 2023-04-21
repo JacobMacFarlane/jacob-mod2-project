@@ -8,8 +8,41 @@
 </head>
 <body class="grid-container">
   <div class="grid-item nav">
+    <div class="nav-left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+      </svg>
       <h1 class="mainHeader">Jacobs Hotel</h1>
-      <button class="loginButton">Login</button>
+    </div>
+    <div class="nav-right">
+      <button data-modal-target="#modal" class="button-21" id="allTimeButt"role="button">See All-Time Total</button>
+      <div class="modal" id="modal">
+        <div class="modal-header">
+          <div class="title">All Time Money Spent</div>
+          <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+          <span class="modal-date">
+            <h3>All Time Money Spent on Trips:</h3>
+            <p id="allTimeMoney"></p>
+          </span>
+          <span class="modal-date">
+            <h3>All Time Money Spent on Lodging:</h3>
+            <p id="allTimeMoneyOnLodging"></p>
+          </span>
+          <span class="modal-date">
+            <h3>All Time Money Spent on Flights:</h3>
+            <p id="allTimeMoneyOnFlights"></p>
+          </span>
+          <span class="modal-date">
+            <h3>All Time Money Spent on Seller Fees:</h3>
+            <p id="allTimeMoneyOnSeller"></p>
+          </span>
+        </div>
+      </div>
+      <div id="overlay"></div>
+      <button class="button-21" role="button">Login</button>
+    </div>
   </div>
   <div class="grid-item fanFavs">
     <h2 class="fanFavoriteTrips">Fan Favorite Trips</h2>
@@ -73,100 +106,46 @@
   </div>
   <div class="grid-item tripNav">
       <div class="tripNavLeft">
-        <button class="upcomingTrip tripBtn">Upcoming</button>
-        <button class="pendingTrip tripBtn">Pending</button>
-        <button class="pastTrip tripBtn">Previous</button>
+        <button class="button-21" role="button">Upcoming</button>
+        <button class="button-21" role="button">Pending</button>
+        <button class="button-21" role="button">Previous</button>
       </div>
       <div class="tripNavRight">
-        <button class="planTrip">Plan A Trip!</button>
+        <button class="button-21" role="button">Plan Your Trip!</button>
       </div>
   </div>
   <div class="grid-item trips" id="pastTrips">
-    <!-- you will do the innerHTML to this -->
-    <!-- it will be synced up to whichever button above is pressed
-    the button should displayed that it is pressed or activated -->
-    <!-- <div class="tripCont pending">
-      <div class="tripList">
-        <a href=""> <img src="" class="thumbnail"></a>
-        <div class="flexDiv">
-          <div class="tripInfo">
-            <a href="">Rio de janairo</a>
-            <p class="pricePerNight">85$</p>
-            <p class="roundTripPrice">750</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tripCont pending">
-      <div class="tripList">
-        <a href=""> <img src="" class="thumbnail"></a>
-        <div class="flexDiv">
-          <div class="tripInfo">
-            <a href="">Rio de janairo</a>
-            <p class="pricePerNight">85$</p>
-            <p class="roundTripPrice">750</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tripCont pending">
-      <div class="tripList">
-        <a href=""> <img src="" class="thumbnail"></a>
-        <div class="flexDiv">
-          <div class="tripInfo">
-            <a href="">Rio de janairo</a>
-            <p class="pricePerNight">85$</p>
-            <p class="roundTripPrice">750</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tripCont pending">
-      <div class="tripList">
-        <a href=""> <img src="" class="thumbnail"></a>
-        <div class="flexDiv">
-          <div class="tripInfo">
-            <a href="">Rio de janairo</a>
-            <p class="pricePerNight">85$</p>
-            <p class="roundTripPrice">750</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tripCont pending">
-      <div class="tripList">
-        <a href=""> <img src="" class="thumbnail"></a>
-        <div class="flexDiv">
-          <div class="tripInfo">
-            <a href="">Rio de janairo</a>
-            <p class="pricePerNight">85$</p>
-            <p class="roundTripPrice">750</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  
-  <!-- <div class='cont'>
-    <form class="login-form">
-          <div class="input-box login">
-            <span class="icon">
-  
-            </span>
-            <label>Days of Stay</label>
-            <input type="date" required>
-          </div>
-          <div class="input-box login">
-            <span class="icon">
-  
-            </span>
-            <label>Number of Guests</label>
-            <input type="number" required>
-          </div>
-          <button type="submit" class="loginBtn">Search</button>
-        </form>
-  </div> -->
+    
+  </div>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
-
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">All Time Money Spent</div>
+      <button data-close-button class="close-button">&times;</button>
+    </div>
+    <!-- <div class="modal-body">
+      <span class="modal-date">
+        <h3>All Time Money Spent on Trips:</h3>
+        <p id="allTimeMoney"></p>
+      </span>
+      <span class="modal-date">
+        <h3>All Time Money Spent on Lodging:</h3>
+        <p id="allTimeMoneyOnLodging"></p>
+      </span>
+      <span class="modal-date">
+        <h3>All Time Money Spent on Flights:</h3>
+        <p id="allTimeMoneyOnFlights"></p>
+      </span>
+      <span class="modal-date">
+        <h3>All Time Money Spent on Seller Fees:</h3>
+        <p id="allTimeMoneyOnSeller"></p>
+      </span>
+    </div>
+  </div>
+  <div id="overlay"></div> -->
 </body>
+<!-- <div class="micromodal-slide modal" id="modal-1" aria-hidden="true">
+  <div class="modal_overlay" tabindex=""></div>
+</div> -->
 </html>
