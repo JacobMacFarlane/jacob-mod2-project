@@ -14,27 +14,45 @@
   <div class="grid-item fanFavs">
     <h2 class="fanFavoriteTrips">Fan Favorite Trips</h2>
     <section class="randomFavTrips">
-      <div class="tripCont favTrip">
-        <svg class="tripContImg pending"></svg>
-        <h3 class="tripContLocation pending">Italy</h3>
-        <p class="tripContPPN pending">2000</p>
-        <p class="tripContEstimate pending">8000</p>
+      <div class="tripCont fav">
+        <div class="tripList">
+          <a href=""> <img src="" class="thumbnail" id="favThumbnail1"></a>
+          <div class="flexDiv">
+            <div class="tripInfo" id="favTripInfo1">
+              <a href="" class="favLocation">Rio de janairo</a>
+              <p class="pricePerNight">85$</p>
+              <p class="roundTripPrice">750</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="tripCont favTrip">
-        <svg class="tripContImg pending"></svg>
-        <h3 class="tripContLocation pending">Italy</h3>
-        <p class="tripContPPN pending">2000</p>
-        <p class="tripContEstimate pending">8000</p>
+      <div class="tripCont fav">
+        <div class="tripList">
+          <a href=""> <img src="" class="thumbnail" id="favThumbnail2"></a>
+          <div class="flexDiv">
+            <div class="tripInfo" id="favTripInfo2">
+              <a href="" class="favLocation">Rio de janairo</a>
+              <p class="pricePerNight">85$</p>
+              <p class="roundTripPrice">750</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="tripCont favTrip">
-        <svg class="tripContImg past"></svg>
-        <h3 class="tripContLocation past">Rio</h3>
-        <p class="tripContPPN past">7000</p>
-        <p class="tripContEstimate past">18000</p>
+      <div class="tripCont fav">
+        <div class="tripList">
+          <a href=""> <img src="" class="thumbnail" id="favThumbnail3"></a>
+          <div class="flexDiv">
+            <div class="tripInfo" id="favTripInfo3">
+              <a href="" class="favLocation">Rio de janairo</a>
+              <p class="pricePerNight">85$</p>
+              <p class="roundTripPrice">750</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </div>
-  <div class="grid-item userLogin">
+  <div class="grid-item userLogin hidden">
       <form class="user-login-form">
         <div class="user-input-box login">
           <span class="icon">
@@ -63,72 +81,70 @@
         <button class="planTrip">Plan A Trip!</button>
       </div>
   </div>
-  <div class="grid-item trips">
+  <div class="grid-item trips" id="pastTrips">
     <!-- you will do the innerHTML to this -->
     <!-- it will be synced up to whichever button above is pressed
     the button should displayed that it is pressed or activated -->
-    
-    <div class="tripCont pending">
-      <svg class="tripContImg pending"></svg>
-      <h3 class="tripContLocation pending">Italy</h3>
-      <p class="tripContPPN pending">2000</p>
-      <p class="tripContEstimate pending">8000</p>
-    </div>
-    <div class="tripCont past">
-      <svg class="tripContImg past"></svg>
-      <h3 class="tripContLocation past">Rio</h3>
-      <p class="tripContPPN past">7000</p>
-      <p class="tripContEstimate past">18000</p>
-    </div>
-    <div class="tripCont pending">
-      <svg class="tripContImg pending"></svg>
-      <h3 class="tripContLocation pending">Italy</h3>
-      <p class="tripContPPN pending">2000</p>
-      <p class="tripContEstimate pending">8000</p>
-    </div>
-    <div class="tripCont past">
-      <svg class="tripContImg past"></svg>
-      <h3 class="tripContLocation past">Rio</h3>
-      <p class="tripContPPN past">7000</p>
-      <p class="tripContEstimate past">18000</p>
+    <!-- <div class="tripCont pending">
+      <div class="tripList">
+        <a href=""> <img src="" class="thumbnail"></a>
+        <div class="flexDiv">
+          <div class="tripInfo">
+            <a href="">Rio de janairo</a>
+            <p class="pricePerNight">85$</p>
+            <p class="roundTripPrice">750</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="tripCont pending">
-      <svg class="tripContImg pending"></svg>
-      <h3 class="tripContLocation pending">Italy</h3>
-      <p class="tripContPPN pending">2000</p>
-      <p class="tripContEstimate pending">8000</p>
-    </div>
-    <div class="tripCont past">
-      <svg class="tripContImg past"></svg>
-      <h3 class="tripContLocation past">Rio</h3>
-      <p class="tripContPPN past">7000</p>
-      <p class="tripContEstimate past">18000</p>
-    </div>
-    <div class="tripCont pending">
-      <svg class="tripContImg pending"></svg>
-      <h3 class="tripContLocation pending">Italy</h3>
-      <p class="tripContPPN pending">2000</p>
-      <p class="tripContEstimate pending">8000</p>
-    </div>
-    <div class="tripCont past">
-      <svg class="tripContImg past"></svg>
-      <h3 class="tripContLocation past">Rio</h3>
-      <p class="tripContPPN past">7000</p>
-      <p class="tripContEstimate past">18000</p>
+      <div class="tripList">
+        <a href=""> <img src="" class="thumbnail"></a>
+        <div class="flexDiv">
+          <div class="tripInfo">
+            <a href="">Rio de janairo</a>
+            <p class="pricePerNight">85$</p>
+            <p class="roundTripPrice">750</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="tripCont pending">
-      <svg class="tripContImg pending"></svg>
-      <h3 class="tripContLocation pending">Italy</h3>
-      <p class="tripContPPN pending">2000</p>
-      <p class="tripContEstimate pending">8000</p>
+      <div class="tripList">
+        <a href=""> <img src="" class="thumbnail"></a>
+        <div class="flexDiv">
+          <div class="tripInfo">
+            <a href="">Rio de janairo</a>
+            <p class="pricePerNight">85$</p>
+            <p class="roundTripPrice">750</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="tripCont past">
-      <svg class="tripContImg past"></svg>
-      <h3 class="tripContLocation past">Rio</h3>
-      <p class="tripContPPN past">7000</p>
-      <p class="tripContEstimate past">18000</p>
+    <div class="tripCont pending">
+      <div class="tripList">
+        <a href=""> <img src="" class="thumbnail"></a>
+        <div class="flexDiv">
+          <div class="tripInfo">
+            <a href="">Rio de janairo</a>
+            <p class="pricePerNight">85$</p>
+            <p class="roundTripPrice">750</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="tripCont pending">
+      <div class="tripList">
+        <a href=""> <img src="" class="thumbnail"></a>
+        <div class="flexDiv">
+          <div class="tripInfo">
+            <a href="">Rio de janairo</a>
+            <p class="pricePerNight">85$</p>
+            <p class="roundTripPrice">750</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
   
   <!-- <div class='cont'>
     <form class="login-form">
