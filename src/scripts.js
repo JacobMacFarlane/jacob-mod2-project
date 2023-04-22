@@ -2,7 +2,7 @@ import { fetchData, newTrip } from './apiCalls'
 import TripInfo from './userTripsAPI';
 import UserInfo from './userInfoAPI';
 import DestinationInfo from './destinationAPI';
-
+import dayjs from 'dayjs';
 
 import './css/styles.css';
 import './images/turing-logo.png'
@@ -24,10 +24,22 @@ var allTimeSeller = document.getElementById('allTimeMoneyOnSeller')
 var pendingButton = document.getElementById('pendingButton')
 var previousButton = document.getElementById('previousButton')
 var modalForm = document.getElementById('modalSubmit')
+var modalClose = document.getElementById('close-button')
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
 let incrementer = 203
+
+
+
+
+
+window.addEventListener('load', () => {
+    createStartPage()
+})
+
+
+
 openModalButtons.forEach(button => {
   button.addEventListener('click', () => {
     const modal = document.querySelector(button.dataset.modalTarget)
@@ -77,29 +89,65 @@ function hideGrid(grid) {
         pendingGrid.classList.add('hidden')
     }
 }
-window.addEventListener('load', () => {
-    createStartPage()
-})
+function increment(item) {
+    item++
+    return item
+}
 modalForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    let startID = allTrips.tripData.sort((a, b) => b.id - a.id)
+    let incrementThis = startID[0].id
+    incrementThis++
     const formInfo = new FormData(e.target);
     let selectElement = document.getElementById("destinations");
     let selectedOption = selectElement.options[selectElement.selectedIndex];
     let selectedValue = selectedOption.value;
     chosenDestination = allDestinations.destinationData.find(destination => destination.destination === selectedValue)
-    const newTrip = {
-        ID: tripIncrementer(),
+    let str = formInfo.get('trip-start')
+    let correctFormat = str.replace(/-/g, '/')
+    console.log(correctFormat, 'correct')
+    let date1Str = formInfo.get('trip-start')
+    let date2Str = formInfo.get('trip-end')
+    let date1 = new Date(date1Str)
+    let date2 = new Date(date2Str)
+    let day1 = dayjs(date1)
+    let day2 =dayjs(date2)
+    diffInDays = day2.diff(day1, 'day')
+    let correctTrav = parseInt(formInfo.get('amountPeople'))
+    console.log(correctTrav, 'pls work')
+    const newTripObj = {
+        id: incrementThis,
         userID: randomUserId,
-        DestinationID: chosenDestination.id,
-        travelers: formInfo.get('amountPeople'),
-        date: formInfo.get('trip-start'),
-        duration: 7,
+        destinationID: chosenDestination.id,
+        travelers: correctTrav,
+        date: correctFormat,
+        duration: diffInDays,
         status: 'pending',
         suggestedActivities: []
     }
-    console.log(newTrip, 'this')
+    console.log(newTripObj, 'obj')
+    Promise.all([newTrip(newTripObj)])
+    .then(() => {
+        // console.log(fetchData('trips'), 'fetch')
+        fetchData('trips')
+        .then(updatedTrip => {
+            // console.log(updatedTrip, 'update')
+            allTrips = new TripInfo(updatedTrip.trips)
+            // console.log(allTrips, 'all')
+            // console.log(allTrips.tripData, 'data')
+        })
+        .then(() => {
+            closeModal(modalClose)
+            hideGrid('pending')
+            displayPending()
+        })
+    })
+    e.target.reset()
+ 
 })
-let allTrips, allTravelers, allDestinations, randomUserId, randomDestination1, randomDestination2, randomDestination3, chosenDestination
+
+  
+let allTrips, allTravelers, allDestinations, randomUserId, randomDestination1, randomDestination2, randomDestination3, chosenDestination, diffInDays
 function createStartPage() {
     Promise.all([fetchData('travelers'), fetchData('trips'), fetchData('destinations')])
     .then(data => {
@@ -192,5 +240,11 @@ function renderPastTrips() {
 
 function renderAllTime() {
     const currentUser = allTravelers.getUserById(randomUserId)
+}
+
+
+
+function displayPending() {
+    console.log(allTrips, 'allTrips')
 }
 console.log('This is the JavaScript entry file - your code begins here.');
