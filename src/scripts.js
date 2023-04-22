@@ -105,7 +105,6 @@ modalForm.addEventListener('submit', (e) => {
     chosenDestination = allDestinations.destinationData.find(destination => destination.destination === selectedValue)
     let str = formInfo.get('trip-start')
     let correctFormat = str.replace(/-/g, '/')
-    console.log(correctFormat, 'correct')
     let date1Str = formInfo.get('trip-start')
     let date2Str = formInfo.get('trip-end')
     let date1 = new Date(date1Str)
@@ -114,7 +113,6 @@ modalForm.addEventListener('submit', (e) => {
     let day2 =dayjs(date2)
     diffInDays = day2.diff(day1, 'day')
     let correctTrav = parseInt(formInfo.get('amountPeople'))
-    console.log(correctTrav, 'pls work')
     const newTripObj = {
         id: incrementThis,
         userID: randomUserId,
@@ -125,20 +123,16 @@ modalForm.addEventListener('submit', (e) => {
         status: 'pending',
         suggestedActivities: []
     }
-    console.log(newTripObj, 'obj')
     Promise.all([newTrip(newTripObj)])
     .then(() => {
-        // console.log(fetchData('trips'), 'fetch')
         fetchData('trips')
         .then(updatedTrip => {
-            // console.log(updatedTrip, 'update')
             allTrips = new TripInfo(updatedTrip.trips)
-            // console.log(allTrips, 'all')
-            // console.log(allTrips.tripData, 'data')
         })
         .then(() => {
             closeModal(modalClose)
             hideGrid('pending')
+            closePendingTrips()
             displayPending()
         })
     })
@@ -202,6 +196,11 @@ function renderFavTrips() {
     <p class="roundTripPrice"> One Way Flight: ${randomThumbnail3.estimatedFlightCostPerPerson}$</p>`
 
 }
+function closePendingTrips() {
+    while (tripGrid.firstChild) {
+        tripGrid.removeChild(tripGrid.firstChild)
+    }
+}
 function renderPastTrips() {
     const currentUser = allTravelers.getUserById(randomUserId)
     let currentUserPast = allTrips.findUserTrips(randomUserId)
@@ -213,6 +212,7 @@ function renderPastTrips() {
         ['duration']: trip.duration
         }
     })
+    closePendingTrips()
     trips.forEach((trip) => {
         tripGrid.innerHTML += `
         <div class="tripCont pending">
@@ -245,6 +245,54 @@ function renderAllTime() {
 
 
 function displayPending() {
-    console.log(allTrips, 'allTrips')
+    const currentUser = allTravelers.getUserById(randomUserId)
+    let currentUserPast = allTrips.findUserTrips(randomUserId)
+    let pending = currentUserPast.filter((trip) => trip.status === 'pending')
+    let trips = pending.map(trip => {
+      return  {
+        ['destination']: allDestinations.getDestinationById(trip.destinationID),
+        ['placeId']: trip.destinationID,
+        ['travelers']: trip.travelers,
+        ['duration']: trip.duration
+        }
+    })
+   let uniqueTrips = []
+   trips.forEach((trip) => {
+    if (!uniqueTrips.some((t) => t.placeId === trip.placeId)) {
+        uniqueTrips.push(trip)
+    }
+   })
+    uniqueTrips.forEach((trip) => {
+        if (!trip.id) {
+            pendingGrid.innerHTML += `
+            <div class="tripCont pending">
+            <div class="tripList">
+              <a href=""> <img src="${trip.destination.image}" class="thumbnail"></a>
+              <div class="flexDiv">
+                <div class="tripInfo">
+                  <a href="">${trip.destination.destination}</a>
+                  <p class="pricePerNight totalPricePerNight"> Total Lodging Cost: ${allDestinations.getTotalLodgingDuration(trip.placeId, trip.duration)}$</p>
+                  <p class="roundTripPrice">Total Flight Cost: ${allDestinations.getTotalFlightCost(trip.placeId, trip.travelers)}$</p>
+                </div>
+              </div>
+            </div>
+          </div>` 
+        }
+
+        }) 
+    //     pendingGrid.innerHTML += `
+    //     <div class="tripCont pending">
+    //     <div class="tripList">
+    //       <a href=""> <img src="${trip.destination.image}" class="thumbnail"></a>
+    //       <div class="flexDiv">
+    //         <div class="tripInfo">
+    //           <a href="">${trip.destination.destination}</a>
+    //           <p class="pricePerNight totalPricePerNight"> Total Lodging Cost: ${allDestinations.getTotalLodgingDuration(trip.placeId, trip.duration)}$</p>
+    //           <p class="roundTripPrice">Total Flight Cost: ${allDestinations.getTotalFlightCost(trip.placeId, trip.travelers)}$</p>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>`
+    
 }
 console.log('This is the JavaScript entry file - your code begins here.');
