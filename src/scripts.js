@@ -132,7 +132,7 @@ modalForm.addEventListener('submit', (e) => {
         .then(() => {
             closeModal(modalClose)
             hideGrid('pending')
-            closePendingTrips()
+            // closePendingTrips()
             displayPending()
         })
     })
@@ -196,11 +196,11 @@ function renderFavTrips() {
     <p class="roundTripPrice"> One Way Flight: ${randomThumbnail3.estimatedFlightCostPerPerson}$</p>`
 
 }
-function closePendingTrips() {
-    while (tripGrid.firstChild) {
-        tripGrid.removeChild(tripGrid.firstChild)
-    }
-}
+// function closePendingTrips() {
+//     while (tripGrid.firstChild) {
+//         tripGrid.removeChild(tripGrid.firstChild)
+//     }
+// }
 function renderPastTrips() {
     const currentUser = allTravelers.getUserById(randomUserId)
     let currentUserPast = allTrips.findUserTrips(randomUserId)
@@ -212,7 +212,7 @@ function renderPastTrips() {
         ['duration']: trip.duration
         }
     })
-    closePendingTrips()
+    // closePendingTrips()
     trips.forEach((trip) => {
         tripGrid.innerHTML += `
         <div class="tripCont pending">
@@ -262,8 +262,12 @@ function displayPending() {
         uniqueTrips.push(trip)
     }
    })
+   console.log(uniqueTrips, 'unique')
     uniqueTrips.forEach((trip) => {
-        if (!trip.id) {
+        const existingTrip = document.querySelector(`.tripCont.pending[data-place-id="${trip.placeId}"]`);
+       console.log(existingTrip, 'exist')
+       console.log(trip, 'trip-ski')
+       if (!trip.id && !pendingGrid.innerHTML.includes(trip.destination.destination)) {
             pendingGrid.innerHTML += `
             <div class="tripCont pending">
             <div class="tripList">
