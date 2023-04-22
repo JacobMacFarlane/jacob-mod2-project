@@ -216,6 +216,7 @@ function renderPastTrips() {
     })
     // closePendingTrips()
     trips.forEach((trip) => {
+        if (!trip.id && !tripGrid.innerHTML.includes(trip.destination.destination)) {
         tripGrid.innerHTML += `
         <div class="tripCont pending">
         <div class="tripList">
@@ -234,6 +235,7 @@ function renderPastTrips() {
         allTimeLodging.innerText = `${allTrips.getAllTimePerNight(randomUserId)} Dollars`
         allTimeFlight.innerText = `${allTrips.getAllTimeFlight(randomUserId)} Dollars`
         allTimeSeller.innerText = `${allTrips.allTimeSellerFee(randomUserId)} Dollars`
+        }
     })
     //in here upon clicking the Previous trips button
     //all of the previous trips will be added into the display
