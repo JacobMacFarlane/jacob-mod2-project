@@ -134,6 +134,7 @@ modalForm.addEventListener('submit', (e) => {
             hideGrid('pending')
             // closePendingTrips()
             displayPending()
+            renderPastTrips()
         })
     })
     e.target.reset()
@@ -204,7 +205,8 @@ function renderFavTrips() {
 function renderPastTrips() {
     const currentUser = allTravelers.getUserById(randomUserId)
     let currentUserPast = allTrips.findUserTrips(randomUserId)
-    let trips = currentUserPast.map(trip => {
+    let approved = currentUserPast.filter((trip) => trip.status === 'approved')
+    let trips = approved.map(trip => {
       return  {
         ['destination']: allDestinations.getDestinationById(trip.destinationID),
         ['placeId']: trip.destinationID,
