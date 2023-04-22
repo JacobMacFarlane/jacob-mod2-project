@@ -209,6 +209,14 @@ border-radius: 5px;
   height: fit-content
   /* background-color: orange; */
 }  
+.grid-item:nth-of-type(6) {
+  grid-column: 2/12;
+  grid-row: 2.5/12;
+  background: rgba(40, 170, 255, 0.25);
+  box-shadow: 0 0 10px gray;
+  height: fit-content
+  /* background-color: orange; */
+} 
 /* .grid-item:nth-of-type(5)::after {
   grid-column: 3/12;
   grid-row: 4/12;

@@ -15,8 +15,8 @@
       <h1 class="mainHeader">Jacobs Hotel</h1>
     </div>
     <div class="nav-right">
-      <button data-modal-target="#modal" class="button-21" id="allTimeButt"role="button">See All-Time Total</button>
-      <div class="modal" id="modal">
+      <button data-modal-target="#modal1" class="button-21" id="allTimeButt"role="button">See All-Time Total</button>
+      <div class="modal" id="modal1">
         <div class="modal-header">
           <div class="title">All Time Money Spent</div>
           <button data-close-button class="close-button">&times;</button>
@@ -107,15 +107,94 @@
   <div class="grid-item tripNav">
       <div class="tripNavLeft">
         <button class="button-21" role="button">Upcoming</button>
-        <button class="button-21" role="button">Pending</button>
-        <button class="button-21" role="button">Previous</button>
+        <button class="button-21" id="pendingButton"role="button">Pending</button>
+        <button class="button-21" id="previousButton"role="button">Previous</button>
       </div>
       <div class="tripNavRight">
-        <button class="button-21" role="button">Plan Your Trip!</button>
+        <button class="button-21" data-modal-target="#modal2" role="button">Plan Your Trip!</button>
       </div>
+      <div class="modal" id="modal2">
+        <div class="modal-header">
+          <div class="title">Plan Your Trip Now!</div>
+          <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form name="hydration_Input_Modal" id="modalSubmit">
+            <label for="hydration_Input_Modal"></label>
+              <label for="destination">Choose a Destination:</label>
+                <select name="Destinations" id="destinations">
+                  <option date-index="1" value="Lima, Peru">Lima, Peru</option>
+                  <option date-index="2" value="Stockholm, Sweden">Stockholm, Sweden</option>
+                  <option date-index="3" value="Sydney, Austrailia">Sydney, Austrailia</option>
+                  <option date-index="4" value="Cartagena, Colombia">Cartagena, Colombia</option>
+                  <option date-index="5" value="Madrid, Spain">Madrid, Spain</option>
+                  <option date-index="6" value="Jakarta, Indonesia">Jakarta, Indonesia</option>
+                  <option date-index="7" value="Paris, France">Paris, France</option>
+                  <option date-index="8" value="Tokyo, Japan">Tokyo, Japan</option>
+                  <option date-index="9" value="Amsterdam, Netherlands">Amsterdam, Netherlands</option>
+                  <option date-index="10" value="Toronto, Canada">Toronto, Canada</option>
+                  <option date-index="11" value="Mikonos, Greece">Mikonos, Greece</option>
+                  <option date-index="12" value="Wellington, New Zealand">Wellington, New Zealand</option>
+                  <option date-index="13" value="St. Petersburg, Russia">St. Petersburg, Russia</option>
+                  <option date-index="14" value="Marrakesh, Morocco">Marrakesh, Morocco</option>
+                  <option date-index="15" value="Manila, Philippines">Manila, Philippines</option>
+                  <option date-index="16" value="Bangkok, Thailand">Bangkok, Thailand</option>
+                  <option date-index="17" value="Jaipur, India">Jaipur, India</option>
+                  <option date-index="18" value="Cape Town, South Africa">Cape Town, South Africa</option>
+                  <option date-index="19" value="Quito, Ecuador">Quito, Ecuador</option>
+                  <option date-index="20" value="Miami, Florida">Miami, Florida</option>
+                  <option date-index="1" value="Tulum, Mexico">Tulum, Mexico</option>
+                  <option date-index="1" value="Rome, Italy">Rome, Italy</option>
+                  <option date-index="1" value="Copenhagen, Denmark">Copenhagen, Denmark</option>
+                  <option date-index="1" value="Vilnius, Lithuania">Vilnius, Lithuania</option>
+                  <option date-index="1" value="New New York, New York">New York, New York</option>
+                  <option date-index="1" value="London, England">London, England</option>
+                  <option date-index="1" value="San Francisco, California">San Francisco, California</option>
+                  <option date-index="1" value="San Jaun, Puerto Rico">San Jaun, Puerto Rico</option>
+                  <option date-index="1" value="Willemstad, Curaçao">Willemstad, Curaçao</option>
+                  <option value="Antananarivo, Madagascar">Antananarivo, Madagascar</option>
+                  <option value="Colombo, Sri Lanka">Colombo, Sri Lanka</option>
+                  <option value="Kathmandu, Nepal">Kathmandu, Nepal</option>
+                  <option value="Brussels, Belgium">Brussels, Belgium</option>
+                  <option value="Seoul, South Korea">Seoul, South Korea</option>
+                  <option value="Anchorage, Alaska">Anchorage, Alaska</option>
+                  <option value="Reykjavík, Iceland">Reykjavík, Iceland</option>
+                  <option value="Frankfurt, Germany">Frankfurt, Germany</option>
+                  <option value="Helsinki, Finland">Helsinki, Finland</option>
+                  <option value="Porto, Portugal">Porto, Portugal</option>
+                  <option value="La Isla Tortuga, Costa Rica">La Isla Tortuga, Costa Rica</option>
+                  <option value="Montego Bay, Jamaica">Montego Bay, Jamaica</option>
+                  <option value="Santo Domingo, Dominican Republic">Santo Domingo, Dominican Republic</option>
+                  <option value="Nassau, The Bahamas">Nassau, The Bahamas</option>
+                  <option value="Caye Caulker, Belize">Caye Caulker, Belize</option>
+                  <option value="Calgary, Canada">Calgary, Canada</option>
+                  <option value="Victoria, Seychelles">Victoria, Seychelles</option>
+                  <option value="Zürich, Switzerland">Zürich, Switzerland</option>
+                  <option value="Dar es Salaam, Tanzania">Dar es Salaam, Tanzania</option>
+                  <option value="Castries, St Lucia">Castries, St Lucia</option>
+                  <option value="Hobart, Tasmania">Hobart, Tasmania</option>
+                </select> <br>
+            <span class="modal-date">
+              <label for="Start">Start date:</label>
+              <input type="date" id="start" name="trip-start"
+              min="2023-04-20" >  <br>
+              <label for="End">End date:</label>
+              <input type="date" id="end" name="trip-end"
+              min="2023-04-20" >  <br>
+            </span>
+            <label for="People">How many People:</label>
+            <input type="number" name="amountPeople" min="0" max="500" id="amountPeople" required><br>
+            <button class="submitButton" id="submitDataButton">Submit</button>
+          </form>
+        </div>
+      </div>
+      <div id="overlay"></div>
   </div>
-  <div class="grid-item trips" id="pastTrips">
+  <div class="grid-item trips pastTrips" id="pastTrips">
     
+  </div>
+  <div class="grid-item trips pendingTrips hidden" id="pendingTrips">
+
   </div>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
