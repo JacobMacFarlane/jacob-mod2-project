@@ -12,7 +12,7 @@
       <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
       </svg> -->
-      <h1 class="mainHeader">Jacobs Hotel</h1>
+      <h1 class="mainHeader" id="mainHeader">Jacobs Hotel</h1>
     </div>
     <div class="nav-right">
       <button data-modal-target="#modal1" class="button-21" id="allTimeButt"role="button">See All-Time Total</button>
@@ -41,7 +41,25 @@
         </div>
       </div>
       <div id="overlay"></div>
-      <!-- <button class="button-21" role="button">Login</button> -->
+      <button class="button-21" data-modal-target="#modal2" role="button">Login</button>
+      <div class="modal" id="modal2">
+        <div class="modal-header">
+          <div class="title">Login Now!</div>
+          <button data-close-button class="close-button" id="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form name="loginModal" id="loginModal">
+            <label for="loginModal"></label>
+            <label for="username">Username</label>
+            <input type="text" name="username"  id="username" required><br>
+            <label for="username">Password</label>
+            <input type="password" name="password"  id="password" required><br>
+            <!-- data-close-button -->
+            <button data-close-button class="submitButton" id="submitLoginButton">Submit</button>
+          </form>
+        </div>
+      </div>
+      <div id="overlay"></div>
     </div>
   </div>
   <div class="grid-item fanFavs">
@@ -111,9 +129,9 @@
         <button class="button-21" id="previousButton"role="button">Previous</button>
       </div>
       <div class="tripNavRight">
-        <button class="button-21" data-modal-target="#modal2" role="button">Plan Your Trip!</button>
+        <button class="button-21" data-modal-target="#modal3" role="button">Plan Your Trip!</button>
       </div>
-      <div class="modal" id="modal2">
+      <div class="modal" id="modal3">
         <div class="modal-header">
           <div class="title">Plan Your Trip Now!</div>
           <button data-close-button class="close-button" id="close-button">&times;</button>
