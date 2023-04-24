@@ -12,6 +12,9 @@ import './images/turing-logo.png'
 var favTripInfo1 = document.getElementById('favTripInfo1')
 var favThumbnail1 = document.getElementById('favThumbnail1')
 var favTripInfo2 = document.getElementById('favTripInfo2')
+var favTripList1 = document.getElementById('tripList1')
+var favTripList2 = document.getElementById('tripList2')
+var favTripList3 = document.getElementById('tripList3')
 var favThumbnail2 = document.getElementById('favThumbnail2')
 var favTripInfo3 = document.getElementById('favTripInfo3')
 var favThumbnail3 = document.getElementById('favThumbnail3')
@@ -180,21 +183,52 @@ function renderFavTrips() {
     //will do innerHTML upon Fan Favorite trips to make it say
     //hello[userName] we think you might like these 3 trips
     //interpolate upon the three boxes to show 3 destinations they have not been
-    favThumbnail1.src = randomThumbnail1.image
-    favTripInfo1.innerHTML = `
-    <a href="" class="favLocation">${randomThumbnail1.destination}</a>
-    <p class="pricePerNight"> Price Per Day:${randomThumbnail1.estimatedLodgingCostPerDay}$</p>
-    <p class="roundTripPrice"> One Way Flight:${randomThumbnail1.estimatedFlightCostPerPerson}$</p>`
-    favThumbnail2.src = randomThumbnail2.image
-    favTripInfo2.innerHTML = `
-    <a href="" class="favLocation">${randomThumbnail2.destination}</a>
-    <p class="pricePerNight"> Price Per Day:${randomThumbnail2.estimatedLodgingCostPerDay}$</p>
-    <p class="roundTripPrice"> One Way Flight${randomThumbnail2.estimatedFlightCostPerPerson}$</p>`
-    favThumbnail3.src = randomThumbnail3.image
-    favTripInfo3.innerHTML = `
-    <a href="" class="favLocation">${randomThumbnail3.destination}</a>
-    <p class="pricePerNight"> Price Per Day: ${randomThumbnail3.estimatedLodgingCostPerDay}$</p>
-    <p class="roundTripPrice"> One Way Flight: ${randomThumbnail3.estimatedFlightCostPerPerson}$</p>`
+    favTripList1.innerHTML = `
+    <a> <img src="${randomThumbnail1.image}" alt="${randomThumbnail1.alt}"class="thumbnail" id="favThumbnail1"></a>
+          <div class="flexDiv">
+            <div class="tripInfo" id="favTripInfo1">
+            <a class="favLocation"> ${randomThumbnail1.destination}</a>
+            <p class="pricePerNight"> Price Per Day:${randomThumbnail1.estimatedLodgingCostPerDay}$</p>
+            <p class="roundTripPrice"> One Way Flight:${randomThumbnail1.estimatedFlightCostPerPerson}$</p>
+            </div>
+          </div>
+    `
+    favTripList2.innerHTML = `
+    <a> <img src="${randomThumbnail2.image}" alt="${randomThumbnail2.alt}"class="thumbnail" id="favThumbnail1"></a>
+          <div class="flexDiv">
+            <div class="tripInfo" id="favTripInfo1">
+            <a class="favLocation"> ${randomThumbnail2.destination}</a>
+            <p class="pricePerNight"> Price Per Day:${randomThumbnail2.estimatedLodgingCostPerDay}$</p>
+            <p class="roundTripPrice"> One Way Flight:${randomThumbnail2.estimatedFlightCostPerPerson}$</p>
+            </div>
+          </div>
+    `
+    favTripList3.innerHTML = `
+    <a> <img src="${randomThumbnail3.image}" alt="${randomThumbnail3.alt}"class="thumbnail" id="favThumbnail1"></a>
+          <div class="flexDiv">
+            <div class="tripInfo" id="favTripInfo1">
+            <a class="favLocation"> ${randomThumbnail3.destination}</a>
+            <p class="pricePerNight"> Price Per Day:${randomThumbnail3.estimatedLodgingCostPerDay}$</p>
+            <p class="roundTripPrice"> One Way Flight:${randomThumbnail3.estimatedFlightCostPerPerson}$</p>
+            </div>
+          </div>
+    `
+    // favThumbnail1.src = randomThumbnail1.image
+    // favTripInfo1.innerHTML = `
+    // <a> ${randomThumbnail1.destination}</a>
+    // <p class="pricePerNight"> Price Per Day:${randomThumbnail1.estimatedLodgingCostPerDay}$</p>
+    // <p class="roundTripPrice"> One Way Flight:${randomThumbnail1.estimatedFlightCostPerPerson}$</p>`
+    
+    // favThumbnail2.src = randomThumbnail2.image
+    // favTripInfo2.innerHTML = `
+    // <a> ${randomThumbnail2.destination}</a>
+    // <p class="pricePerNight"> Price Per Day:${randomThumbnail2.estimatedLodgingCostPerDay}$</p>
+    // <p class="roundTripPrice"> One Way Flight${randomThumbnail2.estimatedFlightCostPerPerson}$</p>`
+    // favThumbnail3.src = randomThumbnail3.image
+    // favTripInfo3.innerHTML = `
+    // <a> ${randomThumbnail3.destination}</a>
+    // <p class="pricePerNight"> Price Per Day: ${randomThumbnail3.estimatedLodgingCostPerDay}$</p>
+    // <p class="roundTripPrice"> One Way Flight: ${randomThumbnail3.estimatedFlightCostPerPerson}$</p>`
 
 }
 // function closePendingTrips() {
@@ -220,10 +254,10 @@ function renderPastTrips() {
         tripGrid.innerHTML += `
         <div class="tripCont pending">
         <div class="tripList">
-          <a href=""> <img src="${trip.destination.image}" class="thumbnail"></a>
+          <a> <img src="${trip.destination.image}" alt="${trip.destination.alt}"class="thumbnail"></a>
           <div class="flexDiv">
             <div class="tripInfo">
-              <a href="">${trip.destination.destination}</a>
+              <a class="favLocation">${trip.destination.destination}</a>
               <p class="pricePerNight totalPricePerNight"> Total Lodging Cost: ${allDestinations.getTotalLodgingDuration(trip.placeId, trip.duration)}$</p>
               <p class="roundTripPrice">Total Flight Cost: ${allDestinations.getTotalFlightCost(trip.placeId, trip.travelers)}$</p>
             </div>
@@ -275,10 +309,10 @@ function displayPending() {
             pendingGrid.innerHTML += `
             <div class="tripCont pending">
             <div class="tripList">
-              <a href=""> <img src="${trip.destination.image}" class="thumbnail"></a>
+              <a> <img src="${trip.destination.image}" alt="${trip.destination.alt}"class="thumbnail"></a>
               <div class="flexDiv">
                 <div class="tripInfo">
-                  <a href="">${trip.destination.destination}</a>
+                  <a class="favLocation">${trip.destination.destination}</a>
                   <p class="pricePerNight totalPricePerNight"> Total Lodging Cost: ${allDestinations.getTotalLodgingDuration(trip.placeId, trip.duration)}$</p>
                   <p class="roundTripPrice">Total Flight Cost: ${allDestinations.getTotalFlightCost(trip.placeId, trip.travelers)}$</p>
                 </div>
@@ -291,10 +325,10 @@ function displayPending() {
     //     pendingGrid.innerHTML += `
     //     <div class="tripCont pending">
     //     <div class="tripList">
-    //       <a href=""> <img src="${trip.destination.image}" class="thumbnail"></a>
+    //       <a> <img src="${trip.destination.image}" class="thumbnail"></a>
     //       <div class="flexDiv">
     //         <div class="tripInfo">
-    //           <a href="">${trip.destination.destination}</a>
+    //           <a>${trip.destination.destination}</a>
     //           <p class="pricePerNight totalPricePerNight"> Total Lodging Cost: ${allDestinations.getTotalLodgingDuration(trip.placeId, trip.duration)}$</p>
     //           <p class="roundTripPrice">Total Flight Cost: ${allDestinations.getTotalFlightCost(trip.placeId, trip.travelers)}$</p>
     //         </div>

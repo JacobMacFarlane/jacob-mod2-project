@@ -9,9 +9,9 @@
 <body class="grid-container">
   <div class="grid-item nav">
     <div class="nav-left">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-      </svg>
+      </svg> -->
       <h1 class="mainHeader">Jacobs Hotel</h1>
     </div>
     <div class="nav-right">
@@ -23,7 +23,7 @@
         </div>
         <div class="modal-body">
           <span class="modal-date">
-            <h3>All Time Money Spent on Trips:</h3>
+            <h2>All Time Money Spent on Trips:</h2>
             <p id="allTimeMoney"></p>
           </span>
           <span class="modal-date">
@@ -41,18 +41,18 @@
         </div>
       </div>
       <div id="overlay"></div>
-      <button class="button-21" role="button">Login</button>
+      <!-- <button class="button-21" role="button">Login</button> -->
     </div>
   </div>
   <div class="grid-item fanFavs">
-    <h2 class="fanFavoriteTrips">Fan Favorite Trips</h2>
+    <h3 class="fanFavoriteTrips">Fan Favorite Trips</h3>
     <section class="randomFavTrips">
       <div class="tripCont fav">
-        <div class="tripList">
-          <a href=""> <img src="" class="thumbnail" id="favThumbnail1"></a>
+        <div class="tripList" id="tripList1">
+          <a> <img src="" class="thumbnail" id="favThumbnail1"></a>
           <div class="flexDiv">
             <div class="tripInfo" id="favTripInfo1">
-              <a href="" class="favLocation">Rio de janairo</a>
+              <a class="favLocation">Rio de janairo</a>
               <p class="pricePerNight">85$</p>
               <p class="roundTripPrice">750</p>
             </div>
@@ -60,11 +60,11 @@
         </div>
       </div>
       <div class="tripCont fav">
-        <div class="tripList">
-          <a href=""> <img src="" class="thumbnail" id="favThumbnail2"></a>
+        <div class="tripList" id="tripList2">
+          <a> <img src="" class="thumbnail" id="favThumbnail2"></a>
           <div class="flexDiv">
             <div class="tripInfo" id="favTripInfo2">
-              <a href="" class="favLocation">Rio de janairo</a>
+              <a class="favLocation">Rio de janairo</a>
               <p class="pricePerNight">85$</p>
               <p class="roundTripPrice">750</p>
             </div>
@@ -72,11 +72,11 @@
         </div>
       </div>
       <div class="tripCont fav">
-        <div class="tripList">
-          <a href=""> <img src="" class="thumbnail" id="favThumbnail3"></a>
+        <div class="tripList" id="tripList3">
+          <a> <img src="" class="thumbnail" id="favThumbnail3"></a>
           <div class="flexDiv">
             <div class="tripInfo" id="favTripInfo3">
-              <a href="" class="favLocation">Rio de janairo</a>
+              <a class="favLocation">Rio de janairo</a>
               <p class="pricePerNight">85$</p>
               <p class="roundTripPrice">750</p>
             </div>
@@ -106,7 +106,7 @@
   </div>
   <div class="grid-item tripNav">
       <div class="tripNavLeft">
-        <button class="button-21" role="button">Upcoming</button>
+        <!-- <button class="button-21" role="button">Upcoming</button> -->
         <button class="button-21" id="pendingButton"role="button">Pending</button>
         <button class="button-21" id="previousButton"role="button">Previous</button>
       </div>
@@ -119,39 +119,39 @@
           <button data-close-button class="close-button" id="close-button">&times;</button>
         </div>
         <div class="modal-body">
-          <form name="hydration_Input_Modal" id="modalSubmit">
-            <label for="hydration_Input_Modal"></label>
+          <form name="planTripModal" id="modalSubmit">
+            <label for="planTripModal"></label>
               <label for="destination">Choose a Destination:</label>
                 <select name="Destinations" id="destinations">
-                  <option date-index="1" value="Lima, Peru">Lima, Peru</option>
-                  <option date-index="2" value="Stockholm, Sweden">Stockholm, Sweden</option>
-                  <option date-index="3" value="Sydney, Austrailia">Sydney, Austrailia</option>
-                  <option date-index="4" value="Cartagena, Colombia">Cartagena, Colombia</option>
-                  <option date-index="5" value="Madrid, Spain">Madrid, Spain</option>
-                  <option date-index="6" value="Jakarta, Indonesia">Jakarta, Indonesia</option>
-                  <option date-index="7" value="Paris, France">Paris, France</option>
-                  <option date-index="8" value="Tokyo, Japan">Tokyo, Japan</option>
-                  <option date-index="9" value="Amsterdam, Netherlands">Amsterdam, Netherlands</option>
-                  <option date-index="10" value="Toronto, Canada">Toronto, Canada</option>
-                  <option date-index="11" value="Mikonos, Greece">Mikonos, Greece</option>
-                  <option date-index="12" value="Wellington, New Zealand">Wellington, New Zealand</option>
-                  <option date-index="13" value="St. Petersburg, Russia">St. Petersburg, Russia</option>
-                  <option date-index="14" value="Marrakesh, Morocco">Marrakesh, Morocco</option>
-                  <option date-index="15" value="Manila, Philippines">Manila, Philippines</option>
-                  <option date-index="16" value="Bangkok, Thailand">Bangkok, Thailand</option>
-                  <option date-index="17" value="Jaipur, India">Jaipur, India</option>
-                  <option date-index="18" value="Cape Town, South Africa">Cape Town, South Africa</option>
-                  <option date-index="19" value="Quito, Ecuador">Quito, Ecuador</option>
-                  <option date-index="20" value="Miami, Florida">Miami, Florida</option>
-                  <option date-index="1" value="Tulum, Mexico">Tulum, Mexico</option>
-                  <option date-index="1" value="Rome, Italy">Rome, Italy</option>
-                  <option date-index="1" value="Copenhagen, Denmark">Copenhagen, Denmark</option>
-                  <option date-index="1" value="Vilnius, Lithuania">Vilnius, Lithuania</option>
-                  <option date-index="1" value="New New York, New York">New York, New York</option>
-                  <option date-index="1" value="London, England">London, England</option>
-                  <option date-index="1" value="San Francisco, California">San Francisco, California</option>
-                  <option date-index="1" value="San Jaun, Puerto Rico">San Jaun, Puerto Rico</option>
-                  <option date-index="1" value="Willemstad, Curaçao">Willemstad, Curaçao</option>
+                  <option value="Lima, Peru">Lima, Peru</option>
+                  <option value="Stockholm, Sweden">Stockholm, Sweden</option>
+                  <option value="Sydney, Austrailia">Sydney, Austrailia</option>
+                  <option value="Cartagena, Colombia">Cartagena, Colombia</option>
+                  <option value="Madrid, Spain">Madrid, Spain</option>
+                  <option value="Jakarta, Indonesia">Jakarta, Indonesia</option>
+                  <option value="Paris, France">Paris, France</option>
+                  <option value="Tokyo, Japan">Tokyo, Japan</option>
+                  <option value="Amsterdam, Netherlands">Amsterdam, Netherlands</option>
+                  <option  value="Toronto, Canada">Toronto, Canada</option>
+                  <option  value="Mikonos, Greece">Mikonos, Greece</option>
+                  <option  value="Wellington, New Zealand">Wellington, New Zealand</option>
+                  <option  value="St. Petersburg, Russia">St. Petersburg, Russia</option>
+                  <option  value="Marrakesh, Morocco">Marrakesh, Morocco</option>
+                  <option  value="Manila, Philippines">Manila, Philippines</option>
+                  <option  value="Bangkok, Thailand">Bangkok, Thailand</option>
+                  <option  value="Jaipur, India">Jaipur, India</option>
+                  <option  value="Cape Town, South Africa">Cape Town, South Africa</option>
+                  <option  value="Quito, Ecuador">Quito, Ecuador</option>
+                  <option  value="Miami, Florida">Miami, Florida</option>
+                  <option value="Tulum, Mexico">Tulum, Mexico</option>
+                  <option value="Rome, Italy">Rome, Italy</option>
+                  <option value="Copenhagen, Denmark">Copenhagen, Denmark</option>
+                  <option value="Vilnius, Lithuania">Vilnius, Lithuania</option>
+                  <option value="New New York, New York">New York, New York</option>
+                  <option value="London, England">London, England</option>
+                  <option value="San Francisco, California">San Francisco, California</option>
+                  <option value="San Jaun, Puerto Rico">San Jaun, Puerto Rico</option>
+                  <option value="Willemstad, Curaçao">Willemstad, Curaçao</option>
                   <option value="Antananarivo, Madagascar">Antananarivo, Madagascar</option>
                   <option value="Colombo, Sri Lanka">Colombo, Sri Lanka</option>
                   <option value="Kathmandu, Nepal">Kathmandu, Nepal</option>
@@ -175,14 +175,14 @@
                   <option value="Hobart, Tasmania">Hobart, Tasmania</option>
                 </select> <br>
             <span class="modal-date">
-              <label for="Start">Start date:</label>
+              <label for="start">Start date:</label>
               <input type="date" id="start" name="trip-start"
               min="2023-04-20" >  <br>
-              <label for="End">End date:</label>
+              <label for="end">End date:</label>
               <input type="date" id="end" name="trip-end"
               min="2023-04-20" >  <br>
             </span>
-            <label for="People">How many People:</label>
+            <label for="amountPeople">How many People:</label>
             <input type="number" name="amountPeople" min="0" max="500" id="amountPeople" required><br>
             <button data-close-button class="submitButton" id="submitDataButton">Submit</button>
           </form>
