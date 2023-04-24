@@ -5,6 +5,9 @@
   border: 0;
   padding: 1px;
 }
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
 .grid-container {
   display: grid;
   grid-template-columns: 12;
@@ -70,10 +73,11 @@
 
 .button-21:active,
 .button-21:focus {
-  outline: none;
+  background-color: black;
 }
 
 .button-21:hover {
+  background-color: blue;
   background-position: -20px -20px;
 }
 
@@ -162,7 +166,7 @@ border-radius: 5px;
 }
 .tripList .flexDiv {
   align-items: flex-start;
-  margin-top: 24px;
+  margin-top: 5px;
 }
 .tripInfo {
   color: black;
@@ -305,4 +309,10 @@ border-radius: 5px;
     background: transparent;
     border: none;
     outline: none;
+  }
+
+  .favLocation {
+    font-size: 16px;
+    font-weight: 1000;
+    
   }
