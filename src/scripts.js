@@ -133,6 +133,7 @@ loginModal.addEventListener('submit', (e) => {
                 randomDestination3 = generateRandomDestination()
                 renderCurrentFavTrips()
                 renderCurrentPastTrips()
+                displayPending()
             
             })
         } 
@@ -200,24 +201,30 @@ function displayPending() {
     }
    })
    console.log(uniqueTrips, 'unique')
+   pendingGrid.innerHTML= ''
     uniqueTrips.forEach((trip) => {
-        const existingTrip = document.querySelector(`.tripCont.pending[data-place-id="${trip.placeId}"]`);
-       console.log(existingTrip, 'exist')
+        let basePrice = allDestinations.getBaseTotal((trip.destination.estimatedLodgingCostPerDay * trip.duration),(trip.destination.estimatedFlightCostPerPerson * trip.travelers))
+        let sellerFee = allDestinations.getSellerFee((trip.destination.estimatedLodgingCostPerDay * trip.duration),(trip.destination.estimatedFlightCostPerPerson * trip.travelers))       
        console.log(trip, 'trip-ski')
        if (!trip.id && !pendingGrid.innerHTML.includes(trip.destination.destination)) {
             pendingGrid.innerHTML += `
             <div class="tripCont pending">
-            <div class="tripList">
-              <a> <img src="${trip.destination.image}" alt="${trip.destination.alt}"class="thumbnail"></a>
-              <div class="flexDiv">
-                <div class="tripInfo">
-                  <a class="favLocation">${trip.destination.destination}</a>
-                  <p class="pricePerNight totalPricePerNight"> Total Lodging Cost: ${allDestinations.getTotalLodgingDuration(trip.placeId, trip.duration)}$</p>
-                  <p class="roundTripPrice">Total Flight Cost: ${allDestinations.getTotalFlightCost(trip.placeId, trip.travelers)}$</p>
+                <div class="tripList">
+                    <a> <img src="${trip.destination.image}" alt="${trip.destination.alt}"class="thumbnail"></a>
+                    <div class="flexDiv">
+                        <div class="tripInfo">
+                            <a class="favLocation">${trip.destination.destination}</a>
+                            <p class="pricePerNight totalPricePerNight"> Total Lodging Cost: ${allDestinations.getTotalLodgingDuration(trip.placeId, trip.duration)}$</p>
+                            <p class="roundTripPrice">Total Flight Cost: ${allDestinations.getTotalFlightCost(trip.placeId, trip.travelers)}$</p>
+                        </div>
+                        <div class="tripPrice">
+                            <p class="baseTotal"> Base Price: ${basePrice}$</p>
+                            <p class="sellerFee"> 10% Seller Fee: ${sellerFee}$</p>
+                            <p class="fullTotal"> Estimated Total: ${allDestinations.getEstimatedTotal(basePrice, sellerFee)}$</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>` 
+            </div>` 
         }
 
         }) 
@@ -237,10 +244,13 @@ function renderCurrentPastTrips() {
         ['duration']: trip.duration
         }
     })
+    
     console.log(trips, 'trips')
     tripGrid.innerHTML = ''
     // closePendingTrips()
     trips.forEach((trip) => {
+        let basePrice = allDestinations.getBaseTotal((trip.destination.estimatedLodgingCostPerDay * trip.duration),(trip.destination.estimatedFlightCostPerPerson * trip.travelers))
+        let sellerFee = allDestinations.getSellerFee((trip.destination.estimatedLodgingCostPerDay * trip.duration),(trip.destination.estimatedFlightCostPerPerson * trip.travelers))
         if (!trip.id && !tripGrid.innerHTML.includes(trip.destination.destination)) {
         tripGrid.innerHTML += `
         <div class="tripCont pending">
@@ -252,7 +262,11 @@ function renderCurrentPastTrips() {
               <p class="pricePerNight totalPricePerNight"> Total Lodging Cost: ${allDestinations.getTotalLodgingDuration(trip.placeId, trip.duration)}$</p>
               <p class="roundTripPrice">Total Flight Cost: ${allDestinations.getTotalFlightCost(trip.placeId, trip.travelers)}$</p>
             </div>
-          </div>
+            <div class="tripPrice">
+                <p class="baseTotal"> Base Price: ${basePrice}$</p>
+                <p class="sellerFee"> 10% Seller Fee: ${sellerFee}$</p>
+                <p class="fullTotal"> Estimated Total: ${allDestinations.getEstimatedTotal(basePrice, sellerFee)}$</p>
+            </div>
         </div>
       </div>
         `

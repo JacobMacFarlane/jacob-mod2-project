@@ -166,10 +166,14 @@ border-radius: 5px;
 }
 .tripList .flexDiv {
   align-items: flex-start;
+  display: flex;
   margin-top: 5px;
 }
 .tripInfo {
   color: black;
+  font-size: 13px;
+}
+.tripPrice {
   font-size: 13px;
 }
 .tripInfo a {
