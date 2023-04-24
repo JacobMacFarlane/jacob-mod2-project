@@ -97,21 +97,27 @@ function increment(item) {
     item++
     return item
 }
+function validateForm(num, password) {
+
+}
 loginModal.addEventListener('submit', (e) => {
     e.preventDefault()
     const formInfo = new FormData(e.target);
     let username = formInfo.get('username')
     let password = formInfo.get('password')
-    console.log(username, 'user')
+    let userLogin = parseInt(username.replace('traveler', ""))
+    console.log(allTrips, 'user')
     console.log(password, 'password')
-    if (password === 'travel' && username === 'traveler50') {
+    if (password !== 'travel' || userLogin > 50 || userLogin < 0) {
+        alert('Wrong username or password')
+    } else {
         let splitPass = username.split('r')
         let userNum = splitPass[2]
         console.log(userNum,'userNum')
         console.log(splitPass, 'splitPass')
         console.log(username, 'user')
         console.log(password, 'password')
-        Promise.all([fetchData('travelers/50'), fetchData('trips'), fetchData('destinations')])
+        Promise.all([fetchData(`travelers/${userNum}`), fetchData('trips'), fetchData('destinations')])
         .then(data => {
             console.log(data[0].name, 'data')
                 allTravelers = new UserInfo(data[0])
@@ -130,10 +136,6 @@ loginModal.addEventListener('submit', (e) => {
             
             })
         } 
-        
-     else {
-    console.log('this didnt work')
-}
     e.target.reset()
 })
 function renderCurrentFavTrips() {
