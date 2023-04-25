@@ -170,7 +170,11 @@
  }
  .tripList .flexDiv {
   align-items: flex-start;
+  display: flex;
   margin-top: 5px;
+ }
+ .baseTotal, .sellerFee, .fullTotal {
+  font-size: 13px;
  }
  .tripInfo {
   color: black;
