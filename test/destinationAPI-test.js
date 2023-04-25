@@ -66,17 +66,26 @@ beforeEach(() => {
       })
   })
   it('Should be able to return the destination name', () => {
-
+    expect(destinationData.getDestinationName(5)).to.equal("Madrid, Spain")
+  })
+  it('Should return undefined given wrong id', () => {
+    expect(destinationData.getDestinationName(6)).to.equal(undefined)
   })
   it('Should be able to return the destinations lodging cost per day', () => {
-    
+    expect(destinationData.getPricePerDay(5)).to.equal(150)
+  })
+  it('Should return undefined given wrong id', () => {
+    expect(destinationData.getPricePerDay(6)).to.equal(undefined)
   })
   it('Should be able to return the flight cost per person', () => {
-    
+    expect(destinationData.getFlightCostPerPerson(5)).to.equal(650)
+  })
+  it('Should return undefined given wrong id', () => {
+    expect(destinationData.getFlightCostPerPerson(6)).to.equal(undefined)
   })
   it('Should be able to calculate how much lodging would be over a given time', () => {
     let duration = ['2023/07/07', '2023/07/06', '2023/07/05', '2023/07/04', '2023/07/03', '2023/07/02',]
-    expect(destinationData.getTotalLodgingDuration(2, duration)).to.equal(600)
+    expect(destinationData.getTotalLodgingDuration(2, duration.length)).to.equal(600)
   })
   it("Should be able to detemine how much a flight would be for each person", () => {
     let amountOfPeople = 2;
@@ -85,14 +94,14 @@ beforeEach(() => {
   it("should be able to get the estimated Total before seller tax", () => {
     let duration = ['2023/07/07', '2023/07/06', '2023/07/05', '2023/07/04', '2023/07/03', '2023/07/02',]
     let amountOfPeople = 2;
-    let estimateLodgingCost = destinationData.getTotalLodgingDuration(2, duration)
+    let estimateLodgingCost = destinationData.getTotalLodgingDuration(2, duration.length)
     let estimateFlightCost= destinationData.getTotalFlightCost(4, amountOfPeople)
     expect(destinationData.getBaseTotal(estimateLodgingCost, estimateFlightCost)).to.equal(1300)
   })
   it("should include a sellers fee", () => {
     let duration = ['2023/07/07', '2023/07/06', '2023/07/05', '2023/07/04', '2023/07/03', '2023/07/02',]
     let amountOfPeople = 2;
-    let estimateLodgingCost = destinationData.getTotalLodgingDuration(2, duration)
+    let estimateLodgingCost = destinationData.getTotalLodgingDuration(2, duration.length)
     let estimateFlightCost= destinationData.getTotalFlightCost(4, amountOfPeople)
     expect(destinationData.getSellerFee(estimateLodgingCost, estimateFlightCost)).to.equal(130)
   })
