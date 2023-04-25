@@ -106,50 +106,37 @@ loginModal.addEventListener('submit', (e) => {
     let username = formInfo.get('username')
     let password = formInfo.get('password')
     let userLogin = parseInt(username.replace('traveler', ""))
-    console.log(allTrips, 'user')
-    console.log(password, 'password')
     if (password !== 'travel' || userLogin > 50 || userLogin < 0) {
         alert('Wrong username or password')
     } else {
         let splitPass = username.split('r')
         let userNum = splitPass[2]
-        console.log(userNum,'userNum')
-        console.log(splitPass, 'splitPass')
-        console.log(username, 'user')
-        console.log(password, 'password')
         Promise.all([fetchData(`travelers/${userNum}`), fetchData('trips'), fetchData('destinations')])
         .then(data => {
-            console.log(data[0].name, 'data')
                 allTravelers = new UserInfo(data[0])
                 allTrips = new TripInfo(data[1].trips, data[2].destinations)
                 allDestinations = new DestinationInfo(data[2].destinations)
             })
             .then(() => {
                 currentUserId = allTravelers.userInfo.id
-                console.log(currentUserId, 'random') 
 
                 randomDestination1 = generateRandomDestination()
                 randomDestination2 = generateRandomDestination()
                 randomDestination3 = generateRandomDestination()
                 renderCurrentFavTrips()
                 renderCurrentPastTrips()
-            
+                displayPending()
             })
         } 
     e.target.reset()
 })
 function renderCurrentFavTrips() {
     const currentUser = allTravelers.userInfo
-    console.log(currentUser, 'current user')
     let randomThumbnail1 = allDestinations.getDestinationById(randomDestination1)
     let randomThumbnail2 = allDestinations.getDestinationById(randomDestination2)
     let randomThumbnail3 = allDestinations.getDestinationById(randomDestination3)
-    //will do innerHTML upon Fan Favorite trips to make it say
-    //hello[userName] we think you might like these 3 trips
     let mainHeader = document.getElementById('mainHeader')
-    
     mainHeader.innerText = `Hello ${currentUser.name}`
-    //interpolate upon the three boxes to show 3 destinations they have not been
     favTripList1.innerHTML = `
     <a> <img src="${randomThumbnail1.image}" alt="${randomThumbnail1.alt}"class="thumbnail" id="favThumbnail1"></a>
           <div class="flexDiv">
@@ -199,7 +186,7 @@ function displayPending() {
         uniqueTrips.push(trip)
     }
    })
-   console.log(uniqueTrips, 'unique')
+pendingGrid.innerHTML = ''
     uniqueTrips.forEach((trip) => {
         const existingTrip = document.querySelector(`.tripCont.pending[data-place-id="${trip.placeId}"]`);
        console.log(existingTrip, 'exist')
@@ -226,9 +213,7 @@ function displayPending() {
 }
 function renderCurrentPastTrips() {
     let currentUserPast = allTrips.findUserTrips(currentUserId)
-    console.log(currentUserPast, 'userpast')
     let approved = currentUserPast.filter((trip) => trip.status === 'approved')
-    console.log(approved, 'aproved')
     let trips = approved.map(trip => {
       return  {
         ['destination']: allDestinations.getDestinationById(trip.destinationID),
@@ -237,9 +222,7 @@ function renderCurrentPastTrips() {
         ['duration']: trip.duration
         }
     })
-    console.log(trips, 'trips')
     tripGrid.innerHTML = ''
-    // closePendingTrips()
     trips.forEach((trip) => {
         if (!trip.id && !tripGrid.innerHTML.includes(trip.destination.destination)) {
         tripGrid.innerHTML += `
@@ -256,16 +239,12 @@ function renderCurrentPastTrips() {
         </div>
       </div>
         `
-        console.log(currentUserId, 'id')
         allTimeMoney.innerText = `${allTrips.allTimeSpending(currentUserId)} Dollars`
         allTimeLodging.innerText = `${allTrips.getAllTimePerNight(currentUserId)} Dollars`
         allTimeFlight.innerText = `${allTrips.getAllTimeFlight(currentUserId)} Dollars`
         allTimeSeller.innerText = `${allTrips.allTimeSellerFee(currentUserId)} Dollars`
         }
     })
-    //in here upon clicking the Previous trips button
-    //all of the previous trips will be added into the display
-    //clicking upcoming or pending should hide them
 }
 
 
@@ -309,9 +288,7 @@ modalForm.addEventListener('submit', (e) => {
         .then(() => {
             closeModal(modalClose)
             hideGrid('pending')
-            // closePendingTrips()
             displayPending()
-            // renderCurrentPastTrips()
         })
     })
     e.target.reset()
