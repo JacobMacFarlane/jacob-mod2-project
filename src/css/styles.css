@@ -1,24 +1,25 @@
-
 * {
   border: 1px solid red;
   margin: 1px;
   border: 0;
   padding: 1px;
-}
-body {
+ }
+ body {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-}
-.grid-container {
+ }
+ .grid-container {
   display: grid;
   grid-template-columns: 12;
   grid-template-rows: 12;
   grid-gap: 5px;
   height: 100vh;
-}
-
-.grid-item:nth-of-type(1) {
+ }
+ 
+ 
+ .grid-item:nth-of-type(1) {
   grid-column: 1/12;
   grid-row: 1/1;
+  /* background-color: red; */
   padding: 10px 2%;
   display: flex;
   justify-content: space-between;
@@ -28,19 +29,20 @@ body {
   position: static;
   top: 0;
   z-index: 10;
-}
-.nav-left {
+ }
+ .nav-left {
   display: flex;
   align-items: center;
-}
-.bi-list {
+ }
+ .bi-list {
   margin-right: 10px;
   width: 50px;
   height: fit-content;
-}
-
-/* CSS */
-.button-21 {
+ }
+ 
+ 
+ /* CSS */
+ .button-21 {
   align-items: center;
   appearance: none;
   background-color: #3EB2FD;
@@ -68,30 +70,33 @@ body {
   touch-action: manipulation;
   vertical-align: top;
   white-space: nowrap;
-}
-
-.button-21:active,
-.button-21:focus {
+ }
+ 
+ 
+ .button-21:active,
+ .button-21:focus {
   background-color: black;
-}
-
-.button-21:hover {
+ }
+ 
+ 
+ .button-21:hover {
   background-color: blue;
   background-position: -20px -20px;
-}
-
-.button-21:focus:not(:active) {
+ }
+ 
+ 
+ .button-21:focus:not(:active) {
   box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
-}
-.grid-item:nth-of-type(2) {
-grid-column: 1/2;
-grid-row: 2/12;
-
-display: flex;
+ }
+ .grid-item:nth-of-type(2) {
+ grid-column: 1/2;
+ grid-row: 2/12;
+ /* background-color: blue; */
+ display: flex;
   flex-direction: column;
   align-items: center;
-}
-.small-grid-item:nth-of-type(2) {
+ }
+ .small-grid-item:nth-of-type(2) {
   grid-row: 2/12;
   background-color: red;
   width: 5vw;
@@ -99,89 +104,110 @@ display: flex;
     flex-direction: column;
     align-items: center;
   }
-
-.userLogin {
+ /* .grid-item:nth-of-type(3) {
+  grid-column: 3/12;
+  grid-row: 2/3;
+  background-color: green;
+ } */
+ .userLogin {
   display: flex;
   align-items: center;
-}
-.user-login-form {
+ }
+ .user-login-form {
   width: 100%;
   display: flex;
   justify-content: space-between;
-}
-.tripNav {
+ }
+ /* .grid-item:nth-of-type(4) {
+  grid-column: 3/12;
+  grid-row: 3/4;
+  background-color: yellow
+ } */
+ .tripNav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 50px;
-}
-.tripBtn {
+ }
+ .tripBtn {
   margin-right: 20px
-}
-.grid-item:nth-of-type(4) {
+ }
+ .grid-item:nth-of-type(4) {
   grid-column: 2/12;
   grid-row: 2/3;
   position: static;
   top: 0
-} 
-
-.grid-item:nth-of-type(5) {
+  /* background-color: yellow  */
+ } */
+ /* .grid-item:nth-of-type(4)::after {
+  grid-column: 3/12;
+ grid-row: 3/4;
+ background-color: yellow;
+ } */
+ .grid-item:nth-of-type(5) {
   grid-column: 2/12;
   grid-row: 4/12;
   height: max-content;
-}
-.trips {
-  display: grid;  
+ 
+ 
+  /* background-color: orange; */
+ }
+ .trips {
+  display: grid; 
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 16px;
-  grid-row-gap: 30px;  
-}
-.thumbnail {
-width: 100%;
-height: 30vh;
-border-radius: 5px;
-}
-.tripList {
+  grid-row-gap: 30px;
+  /* margin-top: 15px; */
+  /* padding: 20px; */
+  }
+ .thumbnail {
+ width: 100%;
+ height: 30vh;
+ border-radius: 5px;
+ }
+ .tripList {
   height: fit-content;
-}
-.tripList .flexDiv {
+ }
+ .tripList .flexDiv {
   align-items: flex-start;
-  display: flex;
   margin-top: 5px;
-}
-.tripInfo {
+ }
+ .tripInfo {
   color: black;
   font-size: 13px;
-}
-.tripPrice {
-  font-size: 13px;
-}
-.tripInfo a {
+ }
+ .tripInfo a {
   color: black;
   font-weight: 500;
   display: block;
   margin-bottom: 5px;
-}
-.tripCont {
+ }
+ .tripCont {
+  /* border: solid black 1px; */
   padding: 2%;
-
+ 
+ 
   height: 42vh
-}
-
-.fanFavs {
+ }
+ /* .tripCont.favTrip {
+  width: 75vw;
+  height: 30%
+ } */
+ .fanFavs {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.fanFavoriteTrips {
+ }
+ .fanFavoriteTrips {
   margin-bottom: 25px;
-}
-.randomFavTrips .tripCont {
+ }
+ .randomFavTrips .tripCont {
   margin-bottom: 10%;
   width: 200px;
-}
-
-.tripContImg {
+ }
+ 
+ 
+ .tripContImg {
   width: 100%;
   height: 70%;
  }
@@ -191,18 +217,25 @@ border-radius: 5px;
   background: rgba(40, 170, 255, 0.25);
   box-shadow: 0 0 10px gray;
   height: fit-content
-}  
-.grid-item:nth-of-type(6) {
+  /* background-color: orange; */
+ } 
+ .grid-item:nth-of-type(6) {
   grid-column: 2/12;
   grid-row: 2.5/12;
   background: rgba(40, 170, 255, 0.25);
   box-shadow: 0 0 10px gray;
   height: fit-content
-} 
-.hidden {
+  /* background-color: orange; */
+ }
+ /* .grid-item:nth-of-type(5)::after {
+  grid-column: 3/12;
+  grid-row: 4/12;
+  background-color: orange;
+ } */
+ .hidden {
   display: none
-}
-.modal {
+ }
+ .modal {
   position: fixed;
   top:50%;
   left: 50%;
@@ -213,34 +246,34 @@ border-radius: 5px;
   z-index: 10;
   background-color: white;
   width: 500px;
-  max-width: 80%; 
-}
-.modal.active {
+  max-width: 80%;
+ }
+ .modal.active {
   transform: translate(-50%, -50%) scale(1);
-}
-.modal-header {
+ }
+ .modal-header {
   padding: 10px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid black;
-}
-.modal-header .title {
+ }
+ .modal-header .title {
   font-size: 1.25rem;
   font-weight: bold;
-}
-.modal-header .close-button {
+ }
+ .modal-header .close-button {
   cursor: pointer;
   border: none;
   outline: none;
   background: none;
   font-size: 1.25rem;
   font-weight: bold
-}
-.modal-body {
+ }
+ .modal-body {
   padding: 10px 15px;
-}
-#overlay {
+ }
+ #overlay {
   position: fixed;
   opacity: 0;
   transition: 200ms ease-in-out;
@@ -250,16 +283,22 @@ border-radius: 5px;
   bottom: 0;
   background-color: rgba(0,0,0, .5);
   pointer-events: none;
-}
-#overlay.active {
+ }
+ #overlay.active {
   opacity: 1;
   pointer-events: all;
-}
-.totals {
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ .totals {
   display: flex;
   flex-direction: column;
-}
-.cont {
+ }
+ .cont {
   border: solid 1px black;
     height: 250px;
     width: 250px;
@@ -271,14 +310,20 @@ border-radius: 5px;
     border-bottom: 2px solid black;
     margin: 30px 0;
   }
-  .input-box input{
+ 
+ 
+   .input-box input{
   width: 100%;
     height: 100%;
     background: transparent;
     border: none;
     outline: none;
   }
+ 
+ 
   .favLocation {
     font-size: 16px;
-    font-weight: 1000; 
+    font-weight: 1000;
+   
   }
+ 
