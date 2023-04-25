@@ -112,12 +112,13 @@ loginModal.addEventListener('submit', (e) => {
             })
             .then(() => {
                 currentUserId = allTravelers.userInfo.id
+
                 randomDestination1 = generateRandomDestination()
                 randomDestination2 = generateRandomDestination()
                 randomDestination3 = generateRandomDestination()
                 renderCurrentFavTrips()
                 renderCurrentPastTrips()
-                displayPending()  
+                displayPending()
             })
         } 
     e.target.reset()
@@ -128,7 +129,6 @@ function renderCurrentFavTrips() {
     let randomThumbnail2 = allDestinations.getDestinationById(randomDestination2)
     let randomThumbnail3 = allDestinations.getDestinationById(randomDestination3)
     let mainHeader = document.getElementById('mainHeader')
-    
     mainHeader.innerText = `Hello ${currentUser.name}`
 
     favTripList1.innerHTML = `
@@ -180,7 +180,10 @@ function displayPending() {
         uniqueTrips.push(trip)
     }
    })
-   pendingGrid.innerHTML= ''
+
+pendingGrid.innerHTML = ''
+
+
     uniqueTrips.forEach((trip) => {
         let basePrice = allDestinations.getBaseTotal((trip.destination.estimatedLodgingCostPerDay * trip.duration),(trip.destination.estimatedFlightCostPerPerson * trip.travelers))
         let sellerFee = allDestinations.getSellerFee((trip.destination.estimatedLodgingCostPerDay * trip.duration),(trip.destination.estimatedFlightCostPerPerson * trip.travelers))       
@@ -218,7 +221,7 @@ function renderCurrentPastTrips() {
         ['duration']: trip.duration
         }
     })
-    
+
     tripGrid.innerHTML = ''
     trips.forEach((trip) => {
         let basePrice = allDestinations.getBaseTotal((trip.destination.estimatedLodgingCostPerDay * trip.duration),(trip.destination.estimatedFlightCostPerPerson * trip.travelers))
